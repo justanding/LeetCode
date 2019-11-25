@@ -11,7 +11,8 @@ func TestClimbStairs(t *testing.T) {
 }
 
 /*
-*/
+ * https://leetcode-cn.com/problems/climbing-stairs/
+ */
 func climbStairs(n int) int {
 	if n <= 2 {
 		return n

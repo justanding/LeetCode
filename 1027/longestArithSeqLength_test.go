@@ -14,6 +14,7 @@ func TestLongestArithSeqLength(t *testing.T) {
 }
 
 /*
+ * https://leetcode-cn.com/problems/longest-arithmetic-sequence/
  * 动态规划 dp[j][seq] = dp[j-seq][seq]+1
  */
 func longestArithSeqLength(A []int) int {

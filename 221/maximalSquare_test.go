@@ -33,6 +33,7 @@ func TestMaximalSquare(t *testing.T) {
 }
 
 /*
+ * https://leetcode-cn.com/problems/maximal-square/
  * dp[i][j] = min(dp[i-1][j-1],dp[i-1][j],dp[i][j-1]) + 1
  */
 func maximalSquare(matrix [][]byte) int {

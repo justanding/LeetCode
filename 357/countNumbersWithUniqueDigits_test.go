@@ -12,6 +12,7 @@ func TestCountNumbersWithUniqueDigits(t *testing.T) {
 }
 
 /*
+ * https://leetcode-cn.com/problems/count-numbers-with-unique-digits/
  * 采用动态规划思路，
  * 当n=0，return 1
  * 当n=1，return 10

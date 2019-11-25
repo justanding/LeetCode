@@ -7,6 +7,7 @@ func TestMaxSubArray(t *testing.T) {
 }
 
 /*
+ * https://leetcode-cn.com/problems/maximum-subarray/
  * 采用动态规划思路
  * 每个节点最大值的关系:f(n) = max(num[n]+f(n-1), num[n])
  */
