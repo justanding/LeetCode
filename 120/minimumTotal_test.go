@@ -20,6 +20,7 @@ func TestMinimumTotal(t *testing.T) {
 }
 
 /*
+ * https://leetcode-cn.com/problems/triangle/
  * dp[i] = min(dp[i-1],dp[i], dp[i+1])
  */
 func minimumTotal(triangle [][]int) int {
