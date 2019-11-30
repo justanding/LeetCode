@@ -6,6 +6,9 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+/*
+ *https://leetcode-cn.com/problems/same-tree/
+ */
 func isSameTree(p *TreeNode, q *TreeNode) bool {
 	if p == nil && q == nil {
 		return true
