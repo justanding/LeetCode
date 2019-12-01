@@ -1,6 +1,7 @@
 package minimumTotal_test
 
 import (
+	_ "runtime/pprof"
 	"testing"
 )
 
@@ -17,6 +18,16 @@ func TestMinimumTotal(t *testing.T) {
 		[]int{3, 2},
 		[]int{-3, 1, -1},
 	}))
+}
+
+func BenchmarkMinimumTota(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		minimumTotal([][]int{
+			[]int{-1},
+			[]int{3, 2},
+			[]int{-3, 1, -1},
+		})
+	}
 }
 
 /*
