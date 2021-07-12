@@ -62,25 +62,29 @@ func Constructor(capacity int) LRUCache {
 func (this *LRUCache) Get(key int) int {
     v, ok := this.m[key]
     if ok  {
-
-        if this.head == v {
-            return v.value
-        }
-        if this.tail == v {
-            this.tail = v.head
-            this.tail.tail = nil
-        } else {
-            v.tail.head = v.head
-            v.head.tail = v.tail
-        }
-        v.tail = this.head
-        v.head = nil
-        this.head.head=v
-        this.head = v
-
-        return v.value
+        value := this.Move(v)
+        return value
     }
     return -1
+}
+
+func (this *LRUCache) Move(v *Cache) int {
+    if this.head == v {
+        return v.value
+    }
+    if this.tail == v {
+        this.tail = v.head
+        this.tail.tail = nil
+    } else {
+        v.tail.head = v.head
+        v.head.tail = v.tail
+    }
+    v.tail = this.head
+    v.head = nil
+    this.head.head=v
+    this.head = v
+
+    return v.value
 }
 
 
@@ -88,21 +92,8 @@ func (this *LRUCache) Put(key int, value int)  {
     v, ok := this.m[key]
     if ok {
         v.value = value
-        if this.head == v {
-            return
-        }
-
-        if this.tail == v {
-            this.tail = v.head
-            this.tail.tail = nil
-        } else {
-            v.tail.head = v.head
-            v.head.tail = v.tail
-        }
-        v.tail = this.head
-        v.head = nil
-        this.head.head=v
-        this.head = v
+        this.Move(v)
+        return
     } else {
         if this.count < this.len {
             cache := &Cache{
