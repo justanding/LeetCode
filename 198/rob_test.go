@@ -17,14 +17,13 @@ func rob(nums []int) int{
         return nums[0]
     }
 
-    maxSlice := make([]int, lenght)
     for i:=0; i<lenght; i++ {
-        maxSlice[i] = nums[i]+max(maxSlice, i-2, i-3)
+        nums[i] = nums[i]+max(nums, i-2, i-3)
     }
-    if maxSlice[lenght-1] > maxSlice[lenght-2] {
-        return maxSlice[lenght-1]
+    if nums[lenght-1] > nums[lenght-2] {
+        return nums[lenght-1]
     } else {
-        return maxSlice[lenght-2]
+        return nums[lenght-2]
     }
 }
 
