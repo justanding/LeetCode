@@ -10,7 +10,7 @@ func TestFindRepeatNumber(t *testing.T) {
 }
 
 
-func findRepeatNumber(nums []int) int {
+func findRepeatNumberMap(nums []int) int {
     hash := map[int]bool{}
 
     for _, v := range nums {
@@ -20,5 +20,17 @@ func findRepeatNumber(nums []int) int {
         hash[v] = true
     }
 
+    return -1
+}
+
+func findRepeatNumber(nums []int) int {
+    sl := make([]int, len(nums))
+
+    for _, v := range nums {
+        if sl[v] != 0 {
+            return v
+        }
+        sl[v] = 1
+    }
     return -1
 }
